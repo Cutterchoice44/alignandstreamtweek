@@ -1,0 +1,267 @@
+/* CSS RESET: Normalize spacing and default rendering across browsers */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+:root {
+  --brand-teal: #5A8785;
+  --bg-dark: #111;
+  --text-light: #fafafa;
+}
+
+/* RESET & BASE */
+*,
+body {
+  margin: 0;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  font-family: Arial, sans-serif;
+  line-height: 1.4;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.5rem 0.8rem;
+  background: #000;
+  justify-content: space-between;
+  align-items: center;
+}
+header .logo {
+  height: 80px;
+  margin-bottom: 0.3rem;
+  flex: 0 0 auto;
+}
+header .title {
+  flex: 1 1 auto;
+  text-align: center;
+}
+header .title h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+header .title .tagline {
+  font-size: 1.2rem;
+  color: var(--brand-teal);
+  margin-top: 0.3rem;
+}
+@media (min-width: 600px) {
+  header {
+    flex-direction: row;
+    align-items: center;
+  }
+  header .logo {
+    margin-bottom: 0;
+    margin-right: 1rem;
+  }
+}
+@media (min-width: 900px) {
+  header .title h1 {
+    font-size: 5rem;
+  }
+  header .title .tagline {
+    font-size: 2rem;
+  }
+}
+
+/* TEAL ACCENT LINE */
+.teal-line {
+  height: 8px;
+  background-color: var(--brand-teal);
+  width: 100%;
+  margin-top: 0.5rem;
+  animation: tealWipe 2s ease-out forwards;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+@keyframes tealWipe {
+  to { transform: scaleX(1); }
+}
+
+/* GRID LAYOUT */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+@media (min-width: 600px) {
+  .grid-container {
+    grid-template-columns: 1fr 1.5fr;
+  }
+}
+@media (min-width: 900px) {
+  .grid-container {
+    grid-template-columns: 1fr 1.5fr 1fr 1fr;
+  }
+}
+
+/* SECTIONS */
+section {
+  background: #222;
+  border: 2px solid var(--brand-teal);
+  border-radius: 6px;
+  padding: 0.5rem;
+}
+section h2 {
+  margin-bottom: 0.5rem;
+  color: var(--brand-teal);
+  text-align: center;
+}
+
+/* CUTTERS CHAT */
+.chat iframe {
+  width: 100%;
+  height: 900px;
+  max-height: 120vh;
+  border: none;
+  border-radius: 4px;
+}
+
+/* LIVE PLAYER */
+.live-player {
+  background: #222;
+  border: 2px solid var(--brand-teal);
+  border-radius: 6px;
+  padding: 1rem;
+  text-align: center;
+}
+.player-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 2rem auto;
+}
+.player-container iframe {
+  width: 100%;
+  height: 90vh;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+/* LIVE NOW TITLE */
+#now-dj {
+  display: block;
+  font-weight: bold;
+  color: var(--brand-teal);
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+/* CURRENT DJ ARTWORK */
+#now-art {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 1rem auto;
+  object-fit: cover;
+}
+
+/* POP-OUT BUTTON */
+.popout-btn {
+  display: inline-block;
+  padding: 0.5rem 2rem;
+  font-size: 1rem;
+  background: var(--brand-teal);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0.3rem auto 0.5rem;
+}
+
+/* THIS WEEK’S LINEUP */
+.schedule {
+  position: relative;
+  max-height: 2000px;
+  overflow-y: auto;
+  background: #111;
+  border-radius: 6px;
+  padding: 0.5rem 1rem 1rem;
+}
+.schedule-heading {
+  position: sticky;
+  top: 0;
+  background: #111;
+  z-index: 10;
+  padding: 0.5rem 0;
+  font-size: 2rem;
+  border-bottom: 1px solid var(--brand-teal);
+}
+#schedule-container {
+  font-size: 1.5rem;
+}
+
+/* MIXCLOUD EMBEDS */
+.mixcloud {
+  background: #000;
+  border-radius: 6px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+#mixcloud-list {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+#mixcloud-list iframe {
+  width: 100%;
+  height: 120px;
+  margin-bottom: 0.5rem;
+  border: none;
+  background: #000;
+}
+.add-mixcloud {
+  text-align: center;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+.add-mixcloud input {
+  width: 80%;
+  max-width: 600px;
+  padding: 0.5rem;
+}
+.add-mixcloud button {
+  padding: 0.5rem 2rem;
+  margin-top: 0.5rem;
+}
+
+/* FOOTER BANNER */
+.banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--brand-teal);
+  padding: 1rem;
+}
+.banner a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+}
+@media (min-width: 600px) {
+  .banner {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
